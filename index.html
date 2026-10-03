@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Orquídea Dorada - salón para matrimonios, quinceañeras y celebraciones especiales en Comas, Lima.">
+  
+  <!-- Open Graph para compartir en Redes Sociales y WhatsApp -->
+  <meta property="og:title" content="Orquídea Dorada | Eventos que se recuerdan">
+  <meta property="og:description" content="Salón de eventos exclusivo para matrimonios, quinceañeras y aniversarios en Comas, Lima. ¡Cotiza tu fecha!">
+  <meta property="og:image" content="img/logo.png">
+  <meta property="og:type" content="website">
+
+  <title>Orquídea Dorada | Eventos que se recuerdan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0a09;
+      --bg2:#13100e;
+      --card:#181411;
+      --gold:#d6ad55;
+      --gold2:#f0d58b;
+      --cream:#f7f0df;
+      --muted:#bdb3a2;
+      --line:rgba(214,173,85,.24);
+      --white:#fffaf0;
+      --shadow:0 25px 70px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",sans-serif;background:
+      radial-gradient(circle at 80% 0%,rgba(214,173,85,.11),transparent 30%),
+      radial-gradient(circle at 0% 30%,rgba(214,173,85,.06),transparent 28%),
+      var(--bg);color:var(--white);line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1160px,92%);margin:auto}
+    .eyebrow{color:var(--gold2);letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;font-weight:700}
+    .section{padding:100px 0}
+    .section-head{max-width:720px;margin-bottom:48px}
+    .section-head h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;margin:12px 0 16px}
+    .section-head p{color:var(--muted);font-size:1.05rem}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:14px 21px;border-radius:999px;font-weight:700;transition:.3s cubic-bezier(.16, 1, .3, 1);
+      border:1px solid var(--line);cursor:pointer;text-align:center;
+    }
+    .btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#21170a;border:0}
+    .btn-gold:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(214,173,85,.3)}
+    .btn-dark{background:rgba(255,255,255,.03);color:var(--white)}
+    .btn-dark:hover{background:rgba(255,255,255,.08);border-color:var(--gold)}
+
+    /* NAV AVANZADO */
+    nav{
+      position:fixed;top:0;left:0;width:100%;z-index:100;
+      background:rgba(11,10,9,.85);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(214,173,85,.15)
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{
+      height:44px;width:44px;object-fit:cover;border-radius:50%;border:1px solid var(--gold);
+    }
+    .brand strong{font-family:"Playfair Display",serif;font-size:1.2rem}
+    .brand span{display:block;color:var(--muted);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase}
+    .nav-links{display:flex;gap:20px;color:#d8d0c2;font-size:.9rem}
+    .nav-links a{transition:color .2s}
+    .nav-links a:hover{color:var(--gold2)}
+    .menu{display:none;background:none;border:0;color:white;font-size:1.6rem;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;padding-top:76px}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+      linear-gradient(90deg,rgba(7,6,5,.96) 0%,rgba(7,6,5,.82) 42%,rgba(7,6,5,.38) 100%),
+      radial-gradient(circle at 78% 42%,rgba(214,173,85,.18),transparent 28%);
+    }
+    .hero-pattern{position:absolute;inset:0;opacity:.18;background-image:
+      linear-gradient(rgba(214,173,85,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(214,173,85,.08) 1px,transparent 1px);
+      background-size:70px 70px;mask-image:linear-gradient(90deg,#000,transparent 80%);
+    }
+    .hero-content{position:relative;z-index:2;width:min(1160px,92%);padding:90px 0}
+    .hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.8rem,7vw,7.3rem);line-height:.98;max-width:820px;margin:18px 0}
+    .hero h1 span{color:var(--gold2);font-style:italic}
+    .hero p{max-width:620px;color:#d0c8bb;font-size:1.12rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-info{display:flex;gap:30px;flex-wrap:wrap;margin-top:48px;color:var(--muted);font-size:.9rem}
+    .hero-info strong{display:block;color:var(--white);font-size:1rem}
+    .ornament{color:var(--gold);font-size:1.4rem;letter-spacing:.4em}
+
+    /* EVENT CARDS */
+    .events{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+    .event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .event-card{
+      min-height:420px;padding:30px;border-radius:24px;position:relative;overflow:hidden;
+      border:1px solid rgba(214,173,85,.18);background:
+      linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.82)),
+      radial-gradient(circle at 70% 20%,rgba(214,173,85,.22),transparent 32%),#171310;
+      box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:flex-end;
+      transition:transform .4s cubic-bezier(.16, 1, .3, 1), border-color .4s;
+    }
+    .event-card:hover{transform:translateY(-8px);border-color:var(--gold2)}
+    .event-card::after{content:"";position:absolute;inset:12px;border:1px solid rgba(214,173,85,.13);border-radius:18px;pointer-events:none}
+    .event-number{position:absolute;top:25px;right:30px;font-family:"Playfair Display",serif;font-size:5rem;color:rgba(240,213,139,.12)}
+    .event-icon{font-size:2rem;margin-bottom:15px}
+    .event-card h3{font-family:"Playfair Display",serif;font-size:2.2rem;position:relative}
+    .event-card p{color:var(--muted);margin:8px 0 20px;position:relative}
+    .event-card .btn{align-self:flex-start;position:relative}
+
+    /* FEATURE */
+    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .visual{
+      min-height:560px;border-radius:30px;border:1px solid var(--line);position:relative;overflow:hidden;
+      background:
+      linear-gradient(135deg,rgba(214,173,85,.18),transparent 42%),
+      linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.85)),
+      #211a14;
+      box-shadow:var(--shadow)
+    }
+    .visual::before{content:"ORQUÍDEA DORADA";position:absolute;inset:30px;border:1px solid rgba(240,213,139,.28);display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4vw,4rem);letter-spacing:.08em;color:rgba(240,213,139,.55);text-align:center;padding:10px;}
+    .visual-badge{position:absolute;bottom:25px;left:25px;background:rgba(11,10,9,.82);backdrop-filter:blur(12px);border:1px solid var(--line);padding:17px 20px;border-radius:16px}
+    .visual-badge strong{font-size:1.4rem;color:var(--gold2)}
+    .check-list{list-style:none;display:grid;gap:16px;margin-top:28px}
+    .check-list li{display:flex;gap:13px;color:#ddd4c5}
+    .check{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;flex:0 0 25px;background:rgba(214,173,85,.14);color:var(--gold2)}
+
+    /* PACKAGES */
+    .package-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+    .tab{padding:11px 18px;border:1px solid var(--line);background:transparent;color:#d9d0c0;border-radius:999px;cursor:pointer;font-weight:700;transition:.2s}
+    .tab.active{background:var(--gold);color:#1b1409;border-color:var(--gold)}
+    .package-panel{
+      background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;overflow-x:auto;
+      animation: fadeIn .4s cubic-bezier(.16, 1, .3, 1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    table{width:100%;border-collapse:collapse;min-width:580px}
+    th,td{text-align:left;padding:16px;border-bottom:1px solid rgba(255,255,255,.07)}
+    th{color:var(--gold2);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+    td{color:#ddd5c8}
+    td:last-child{font-weight:800;color:var(--white)}
+    .note{margin-top:20px;color:var(--muted);font-size:.88rem}
+    .note strong{color:#e7dcc9}
+
+    /* SERVICES */
+    .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .service-box{
+      padding:28px;background:rgba(255,255,255,.025);border:1px solid rgba(214,173,85,.15);border-radius:22px;
+      transition:border-color .3s, transform .3s;
+    }
+    .service-box:hover{border-color:var(--gold2);transform:translateY(-4px)}
+    .service-box h3{font-family:"Playfair Display",serif;font-size:1.6rem;color:var(--gold2);margin-bottom:18px}
+    .service-box ul{list-style:none;display:grid;gap:10px;color:#cfc6b8}
+    .service-box li::before{content:"✦";color:var(--gold);margin-right:9px}
+
+    /* PREGUNTAS FRECUENTES (FAQ) */
+    .faq-grid{display:grid;gap:14px;max-width:800px;margin:0 auto}
+    .faq-item{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .3s}
+    .faq-item:hover{border-color:var(--gold2)}
+    .faq-question{width:100%;padding:20px 24px;background:none;border:0;color:var(--white);font-family:"DM Sans",sans-serif;font-size:1.05rem;font-weight:700;text-align:left;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .faq-question span{color:var(--gold);font-size:1.4rem;transition:transform .3s}
+    .faq-answer{padding:0 24px 20px;color:var(--muted);font-size:.95rem;display:none}
+    .faq-item.active .faq-answer{display:block}
+    .faq-item.active .faq-question span{transform:rotate(45deg)}
+
+    /* TESTIMONIOS */
+    .testimonials{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .testimonial-card{
+      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;
+      display:flex;flex-direction:column;justify-content:space-between;position:relative;
+      box-shadow:var(--shadow);transition:transform .3s, border-color .3s;
+    }
+    .testimonial-card:hover{transform:translateY(-4px);border-color:var(--gold2)}
+    .testimonial-stars{color:var(--gold2);font-size:1.1rem;margin-bottom:12px}
+    .testimonial-card p{color:#d5ccc0;font-style:italic;font-size:.98rem;margin-bottom:20px}
+    .testimonial-author strong{display:block;font-family:"Playfair Display",serif;font-size:1.1rem;color:var(--white)}
+    .testimonial-author span{color:var(--muted);font-size:.82rem}
+
+    /* GALERÍA */
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:220px 220px;gap:12px}
+    .gallery-item{
+      border-radius:20px;border:1px solid var(--line);overflow:hidden;position:relative;background:linear-gradient(135deg,#33271c,#17120f);
+      transition:border-color .3s;
+    }
+    .gallery-item:hover{border-color:var(--gold2)}
+    .gallery-item:first-child{grid-row:1/3}
+    .gallery-item img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .6s cubic-bezier(.16, 1, .3, 1);
+    }
+    .gallery-item:hover img{transform:scale(1.06)}
+    .gallery-item .overlay-text{
+      position:absolute;inset:auto 15px 15px;color:#e8dcc8;font-size:.78rem;background:rgba(11,10,9,.75);backdrop-filter:blur(8px);padding:8px 12px;border-radius:10px;border:1px solid var(--line);z-index:2;pointer-events:none;
+    }
+    .gallery-item span.placeholder-text{position:absolute;inset:0;display:grid;place-items:center;color:rgba(240,213,139,.45);font-family:"Playfair Display",serif;font-size:1.8rem}
+
+    /* CTA */
+    .cta{padding:30px 0}
+    .cta-box{border:1px solid var(--line);border-radius:30px;padding:65px 50px;background:
+      radial-gradient(circle at 85% 30%,rgba(214,173,85,.2),transparent 30%),
+      linear-gradient(135deg,#211a14,#100e0c);text-align:center}
+    .cta-box h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,5vw,4.2rem);margin:10px auto;max-width:800px}
+    .cta-box h2 span{color:var(--gold2);font-style:italic}
+    .cta-box p{color:var(--muted);max-width:650px;margin:0 auto 25px}
+
+    footer{border-top:1px solid rgba(255,255,255,.07);padding:35px 0;color:#9f9689}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+    .footer-brand{color:var(--gold2);font-family:"Playfair Display",serif;font-size:1.3rem}
+    
+    .wa{position:fixed;right:22px;bottom:22px;z-index:90;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:white;box-shadow:0 15px 40px rgba(0,0,0,.4);border:3px solid rgba(255,255,255,.18);transition:transform .3s}
+    .wa:hover{transform:scale(1.1)}
+    
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.16, 1, .3, 1)}
+    .reveal.show{opacity:1;transform:none}
+
+    /* MEDIA QUERIES PARA CELULARES Y TABLETS */
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:76px;left:0;width:100%;padding:24px;background:rgba(16,14,12,.98);backdrop-filter:blur(20px);flex-direction:column;border-bottom:1px solid var(--line);gap:16px;text-align:center;font-size:1.05rem;}
+      .nav-links.open{display:flex}
+      .menu{display:block}
+      .event-grid,.feature-grid,.service-grid,.testimonial-grid{grid-template-columns:1fr}
+      .visual{min-height:380px}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 180px 180px}
+      .gallery-item:first-child{grid-row:auto;grid-column:1/3}
+    }
+    @media(max-width:560px){
+      .section{padding:65px 0}
+      .hero h1{font-size:2.8rem}
+      .hero-info{gap:16px}
+      .package-panel{padding:16px}
+      .cta-box{padding:40px 20px}
+      .gallery{display:grid;grid-template-columns:1fr;grid-template-rows:220px 180px 180px 180px}
+      .gallery-item:first-child{grid-column:auto}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio">
+        <!-- Se usa onerror para evitar que rompa la imagen si no existe la carpeta local 'img' -->
+        <img class="brand-logo" src="img/logo.png" alt="Orquídea Dorada Logo" onerror="this.style.display='none'">
+        <div><strong>Orquídea Dorada</strong><span>Salón de eventos</span></div>
+      </a>
+      <button class="menu" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#eventos">Eventos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-pattern"></div>
+      <div class="hero-content reveal">
+        <div class="eyebrow">Celebraciones que quedan para siempre</div>
+        <div class="ornament">— ✦ —</div>
+        <h1>Tu historia merece un escenario <span>inolvidable.</span></h1>
+        <p>Un espacio preparado para celebrar matrimonios, quinceañeras y 50 años con una propuesta elegante, atención durante el evento y servicios pensados para que disfrutes tu día.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/51959382323?text=Hola%20Orqu%C3%ADdea%20Dorada%2C%20quisiera%20cotizar%20mi%20evento." target="_blank">Cotizar por WhatsApp ↗</a>
+          <a class="btn btn-dark" href="#eventos">Ver eventos</a>
+        </div>
+        <div class="hero-info">
+          <div><strong>📍 Comas, Lima</strong>Av. Héroes del Alto Cenepa 1291</div>
+          <div><strong>📞 959 382 323</strong>Consultas y reservas</div>
+          <div><strong>⏱ 8 horas</strong>Servicio según proforma</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events" id="eventos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Nuestros eventos</div>
+          <h2>Un salón para cada <em>momento</em> importante.</h2>
+          <p>Elige el tipo de celebración y conoce la propuesta preparada para tu evento.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card reveal">
+            <div class="event-number">01</div>
+            <div class="event-icon">💍</div>
+            <h3>Matrimonio</h3>
+            <p>Una celebración elegante con personal, mobiliario, audio, iluminación y detalles incluidos en la propuesta.</p>
+            <a href="#paquetes" class="btn btn-dark">Ver propuesta</a>
+          </article>
+          <article class="event-card reveal">
+            <div class="event-number">02</div>
+            <div class="event-icon">15</div>
+            <h3>Quinceañera</h3>
+            <p>Un espacio pensado para una noche especial, con recepción, ambientación y servicios para acompañar cada momento.</p>
+            <a href="#paquetes" class="btn btn-dark">Ver propuesta</a>
+          </article>
+          <article class="event-card reveal">
+            <div class="event-number">03</div>
+            <div class="event-icon">🥂</div>
+            <h3>50 años</h3>
+            <p>Una gran celebración de aniversario con toldo arquitectónico, cena gourmet, hora loca, barra libre y más.</p>
+            <a href="#paquetes" class="btn btn-dark">Ver propuesta</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-grid">
+        <div class="visual reveal">
+          <div class="visual-badge"><strong>8 horas</strong><br>de servicio para tu evento</div>
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">La experiencia</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.3rem,5vw,4rem);line-height:1.05;margin:12px 0 18px">Más que un local: todo preparado para <em>celebrar</em>.</h2>
+          <p style="color:var(--muted)">La propuesta de Orquídea Dorada contempla personal durante el evento, sonido, iluminación, mobiliario, decoración temática, fotografía y otros servicios según el paquete contratado.</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span><strong>Personal durante el evento</strong><br>Coordinación, DJ, anfitriona, maestro de ceremonia, mozos, seguridad y mantenimiento.</span></li>
+            <li><span class="check">✓</span><span><strong>Audio e iluminación</strong><br>Equipo de sonido, micrófonos, luces, láser y efectos según la proforma.</span></li>
+            <li><span class="check">✓</span><span><strong>Mobiliario y ambientación</strong><br>Mesas, sillas, mantelería y elementos decorativos incluidos según propuesta.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="paquetes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Propuestas 2026</div>
+          <h2>Consulta los paquetes del salón.</h2>
+          <p>Estos valores se han tomado de las proformas proporcionadas. La cotización final debe confirmarse directamente con el negocio.</p>
+        </div>
+        <div class="package-tabs reveal">
+          <button class="tab active" data-target="matrimonio">Matrimonio</button>
+          <button class="tab" data-target="quince">Quinceañera</button>
+          <button class="tab" data-target="cincuenta">50 años</button>
+        </div>
+
+        <div class="package-panel reveal" id="matrimonio">
+          <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px">Matrimonio</h3>
+          <p style="color:var(--muted);margin-bottom:18px">Salón principal / área verde según disponibilidad y propuesta.</p>
+          <table>
+            <thead><tr><th>Personas</th><th>Salón principal</th><th>Área verde</th></tr></thead>
+            <tbody>
+              <tr><td>50</td><td>S/ 17,500</td><td>—</td></tr>
+              <tr><td>60</td><td>S/ 19,500</td><td>—</td></tr>
+              <tr><td>70</td><td>S/ 21,100</td><td>—</td></tr>
+              <tr><td>80</td><td>S/ 22,300</td><td>—</td></tr>
+              <tr><td>90</td><td>S/ 23,100</td><td>—</td></tr>
+              <tr><td>100</td><td>S/ 23,500</td><td>S/ 24,500</td></tr>
+            </tbody>
+          </table>
+          <div class="note"><strong>Condiciones de la proforma:</strong> servicio por 8 horas · separación de fecha S/ 500 · garantía S/ 250 · APDAYC S/ 500 · contrato 20% del total · 1 mes antes 50% · 15 días antes 80% · antes del inicio 20% restante.</div>
+        </div>
+
+        <div class="package-panel reveal" id="quince" style="display:none">
+          <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px">Quinceañera</h3>
+          <p style="color:var(--muted);margin-bottom:18px">Propuesta para celebración de quinceañera.</p>
+          <table>
+            <thead><tr><th>Personas</th><th>Salón principal</th><th>Área verde</th></tr></thead>
+            <tbody>
+              <tr><td>50</td><td>S/ 17,500</td><td>—</td></tr>
+              <tr><td>60</td><td>S/ 19,500</td><td>—</td></tr>
+              <tr><td>70</td><td>S/ 21,100</td><td>—</td></tr>
+              <tr><td>80</td><td>S/ 22,300</td><td>—</td></tr>
+              <tr><td>90</td><td>S/ 23,100</td><td>—</td></tr>
+              <tr><td>100</td><td>S/ 23,500</td><td>S/ 24,500</td></tr>
+            </tbody>
+          </table>
+          <div class="note"><strong>Condiciones de la proforma:</strong> servicio por 8 horas · separación de fecha S/ 500 · garantía S/ 250 · APDAYC S/ 500 · contrato 20% del total · 1 mes antes 50% · 15 días antes 80% · antes del inicio 20% restante.</div>
+        </div>
+
+        <div class="package-panel reveal" id="cincuenta" style="display:none">
+          <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px">50 años (Aniversario)</h3>
+          <p style="color:var(--muted);margin-bottom:18px">Paquete completo basado en la proforma oficial de 50 años. Mismas tarifas base del salón principal y área verde:</p>
+          <table>
+            <thead><tr><th>Personas</th><th>Salón principal</th><th>Área verde</th></tr></thead>
+            <tbody>
+              <tr><td>50</td><td>S/ 17,500</td><td>—</td></tr>
+              <tr><td>60</td><td>S/ 19,500</td><td>—</td></tr>
+              <tr><td>70</td><td>S/ 21,100</td><td>—</td></tr>
+              <tr><td>80</td><td>S/ 22,300</td><td>—</td></tr>
+              <tr><td>90</td><td>S/ 23,100</td><td>—</td></tr>
+              <tr><td>100</td><td>S/ 23,500</td><td>S/ 24,500</td></tr>
+            </tbody>
+          </table>
+          
+          <div style="margin-top:25px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px;">
+            <div style="background:rgba(255,255,255,.02); padding:16px; border-radius:12px; border:1px solid var(--line);">
+              <strong style="color:var(--gold2)">✨ Incluye además:</strong>
+              <ul style="list-style:none; margin-top:8px; font-size:.9rem; color:#d0c8bb; display:grid; gap:6px;">
+                <li>• Toldo arquitectónico (430 mts2, 2 niveles)</li>
+                <li>• Barra + Barman (2 horas de barra libre)</li>
+                <li>• Hora loca (2 personajes, cotillón, gorro especial)</li>
+                <li>• Mariachis y 1 coreógrafo</li>
+              </ul>
+            </div>
+            <div style="background:rgba(255,255,255,.02); padding:16px; border-radius:12px; border:1px solid var(--line);">
+              <strong style="color:var(--gold2)">🍽 Catering y Banquetes:</strong>
+              <ul style="list-style:none; margin-top:8px; font-size:.9rem; color:#d0c8bb; display:grid; gap:6px;">
+                <li>• 400 bocaditos salados y 400 dulces</li>
+                <li>• Cena gourmet (Plato fondo + 2 guarniciones)</li>
+                <li>• Torta de 3 pisos (3 kilos reales o opción a maqueta)</li>
+                <li>• Fotografía y Filmación profesional en Full HD</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note"><strong>Condiciones de la proforma:</strong> servicio por 8 horas · separación de fecha S/ 500 · garantía S/ 250 · APDAYC S/ 500 · contrato 20% del total · 1 mes antes 50% · 15 días antes 80% · antes del inicio 20% restante.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Incluido en la propuesta</div>
+          <h2>Detalles que hacen la diferencia.</h2>
+          <p>Resumen de los servicios visibles en las proformas del salón.</p>
+        </div>
+        <div class="service-grid">
+          <div class="service-box reveal">
+            <h3>Personal durante el evento</h3>
+            <ul>
+              <li>Coordinador general del evento</li>
+              <li>DJ profesional</li>
+              <li>Anfitriona</li>
+              <li>Maestro de ceremonia, incluye ensayo</li>
+              <li>Mozos completamente uniformados</li>
+              <li>Personal de seguridad</li>
+              <li>Personal de mantenimiento</li>
+            </ul>
+          </div>
+          <div class="service-box reveal">
+            <h3>Audio y visuales</h3>
+            <ul>
+              <li>Equipo de sonido de última tecnología</li>
+              <li>Micrófonos</li>
+              <li>Láser de colores, tachos LED y cabezas móviles</li>
+              <li>Máquina de humo y máquina de burbujas</li>
+            </ul>
+          </div>
+          <div class="service-box reveal">
+            <h3>Mobiliario y Arreglos</h3>
+            <ul>
+              <li>Mesas vestidas para 10 personas</li>
+              <li>Manteles con diseño y servilletas de tela</li>
+              <li>Centros de mesa de flores naturales</li>
+              <li>Salas lounge y base de torta colgante</li>
+            </ul>
+          </div>
+          <div class="service-box reveal">
+            <h3>Entretenimiento y Extras</h3>
+            <ul>
+              <li>Hora loca con personajes y cotillón</li>
+              <li>Barra libre con barman</li>
+              <li>Mariachis y coreógrafo</li>
+              <li>Fotografía y filmación en Full HD con USB</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="section" id="faq" style="background:var(--bg2);">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Dudas comunes</div>
+          <h2>Preguntas <em>frecuentes</em>.</h2>
+          <p>Todo lo que necesitas saber antes de separar tu fecha con nosotros.</p>
+        </div>
+        <div class="faq-grid reveal">
+          <div class="faq-item">
+            <button class="faq-question">¿Con cuánta anticipación debo separar la fecha? <span>+</span></button>
+            <div class="faq-answer">Recomendamos separar entre 4 a 8 meses de anticipación, especialmente si deseas una fecha en temporada alta (sábados de verano o festivos), abonando la garantía de separación inicial de S/ 500.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">¿Cuál es el tiempo de duración del servicio? <span>+</span></button>
+            <div class="faq-answer">Los paquetes estándar contemplan un servicio continuo de 8 horas para el desarrollo completo de tu evento.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">¿Se puede incluir proveedores externos? <span>+</span></button>
+            <div class="faq-answer">Nuestros paquetes ya incluyen personal, catering, sonido y decoración completa. Si deseas incorporar algún detalle adicional externo, puedes consultarlo directamente con nuestro asesor por WhatsApp.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">¿Cómo se realiza el pago de las cuotas? <span>+</span></button>
+            <div class="faq-answer">El cronograma habitual contempla un 20% al firmar el contrato, 50% un mes antes del evento, 80% quince días antes y el 20% restante antes del inicio del evento.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimonios">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Experiencias reales</div>
+          <h2>Lo que dicen quienes ya <em>celebraron</em> con nosotros.</h2>
+          <p>La confianza y felicidad de nuestros clientes es nuestra mejor carta de presentación.</p>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p>"Nuestro matrimonio fue tal como lo soñamos. La coordinación y el salón principal quedaron hermosos, todos nuestros invitados quedaron encantados con la atención."</p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Valeria & Rodrigo</strong>
+              <span>Matrimonio · Comas</span>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p>"Celebramos los 15 años de mi hija y la organización fue impecable de principio a fin. El maestro de ceremonias y el DJ hicieron que la noche fuera inolvidable."</p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Familia Mendoza</strong>
+              <span>Quinceañera · Lima Norte</span>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p>"Contratamos el paquete completo de 50 años de bodas de oro y superó totalmente nuestras expectativas. El toldo, la cena y la hora loca estuvieron fabulosos."</p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Carmen y Julio</strong>
+              <span>Bodas de Oro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Galería</div>
+          <h2>Inspiración para tu gran <em>día</em>.</h2>
+          <p>Reemplaza estas imágenes en la carpeta img/ con fotos reales de tus eventos.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item reveal">
+            <img src="img/galeria-1.jpg" alt="Salón principal" onerror="this.style.display='none'">
+            <span class="placeholder-text">Salón principal</span>
+            <div class="overlay-text">Salón principal</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="img/galeria-2.jpg" alt="Decoración" onerror="this.style.display='none'">
+            <span class="placeholder-text">Decoración</span>
+            <div class="overlay-text">Decoración</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="img/galeria-3.jpg" alt="Mesas" onerror="this.style.display='none'">
+            <span class="placeholder-text">Mesas</span>
+            <div class="overlay-text">Mesas</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="img/galeria-4.jpg" alt="Eventos" onerror="this.style.display='none'">
+            <span class="placeholder-text">Eventos</span>
+            <div class="overlay-text">Eventos</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="img/galeria-5.jpg" alt="Área verde" onerror="this.style.display='none'">
+            <span class="placeholder-text">Área verde</span>
+            <div class="overlay-text">Área verde</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contacto">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="eyebrow">Reserva / cotización</div>
+          <h2>Cuéntanos qué quieres <span>celebrar</span>.</h2>
+          <p>Indícanos el tipo de evento, fecha aproximada y cantidad de invitados. Te contactaremos para revisar disponibilidad y cotización.</p>
+          <a class="btn btn-gold" href="https://wa.me/51959382323?text=Hola%20Orqu%C3%ADdea%20Dorada%2C%20quiero%20cotizar%20un%20evento.%20Tipo%3A%20%20%20%20Fecha%3A%20%20%20%20Invitados%3A" target="_blank">Hablar por WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE UBICACIÓN / MAPA CON BOTÓN DE CÓMO LLEGAR -->
+    <section class="section" id="ubicacion" style="background:var(--bg2);">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Ubicación</div>
+          <h2>Visítanos en <em>Comas</em>.</h2>
+          <p>Te esperamos para mostrarte las instalaciones y conversar sobre los detalles de tu evento.</p>
+        </div>
+        <div class="reveal" style="border-radius:24px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); position:relative;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.6263050186524!2d-77.0465!3d-11.9283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDU1JzQxLjkiUyA3N8KwMDInNDcuNCJX!5e0!3m2!1ses!2spe!4v1650000000000!5m2!1ses!2spe" 
+            width="100%" 
+            height="450" 
+            style="border:0; filter: grayscale(85%) contrast(120%) invert(92%);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div style="position:absolute; bottom:20px; left:20px; background:rgba(11,10,9,.9); backdrop-filter:blur(12px); padding:18px 22px; border-radius:16px; border:1px solid var(--line); display:flex; flex-direction:column; gap:10px; max-width:calc(100% - 40px);">
+            <div>
+              <strong style="color:var(--gold2); display:block; font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:4px;">Orquídea Dorada</strong>
+              <p style="color:var(--muted); font-size:.88rem; margin:0;">Av. Héroes del Alto Cenepa 1291, Comas, Lima</p>
+            </div>
+            <!-- Botón de Cómo llegar integrado directamente -->
+            <a href="https://maps.google.com/?q=Av.+Héroes+del+Alto+Cenepa+1291+Comas+Lima" target="_blank" class="btn btn-gold" style="padding:10px 16px; font-size:.85rem; align-self:flex-start;">Abrir en Google Maps ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Orquídea Dorada</div>
+        <small>Salón de eventos · Comas, Lima</small>
+      </div>
+      <div>Av. Héroes del Alto Cenepa 1291 · 959 382 323</div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a class="wa" href="https://wa.me/51959382323?text=Hola%20Orquídea%20Dorada,%20quisiera%20información." target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </a>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.package-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        panels.forEach(p => p.style.display = 'none');
+        document.getElementById(tab.dataset.target).style.display = 'block';
+      });
+    });
+
+    // Script para el acordeón de Preguntas Frecuentes (FAQ)
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Corrección en el Observer para evitar pantallas en blanco (se quitó la propiedad de clase errónea)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: .12 });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
